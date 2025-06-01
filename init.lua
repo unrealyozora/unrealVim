@@ -1,7 +1,13 @@
+vim.opt.termguicolors = true
 require("config.lazy")
 vim.g.have_nerd_font = true
-require("tom")
 require("lazy").setup({
-	{ "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" }
+  { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" }
 })
-vim.lsp.enable("luals")
+
+
+if vim.g.vscode then
+  require "tom.vscode_keymaps"
+else
+  --ordinary
+end
