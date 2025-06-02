@@ -1,6 +1,6 @@
 return {
-    {
-        "tpope/vim-fugitive",
-        cond = not vim.g.vscode
-    },
+  {
+    "tpope/vim-fugitive",
+    cond = not vim.g.vscode
+  },
 }

@@ -1,6 +1,7 @@
 return {
   {
     'echasnovski/mini.nvim',
+    cond = not vim.g.vscode,
     config = function()
       require('mini.icons').setup()
       local statusline = require 'mini.statusline'

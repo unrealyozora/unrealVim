@@ -1,9 +1,8 @@
 vim.opt.termguicolors = true
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 require("config.lazy")
 vim.g.have_nerd_font = true
-require("lazy").setup({
-  { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" }
-})
 
 
 if vim.g.vscode then
