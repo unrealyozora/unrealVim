@@ -31,7 +31,7 @@ return {
               { hl = mode_hl,                 strings = { mode } },
               { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
               '%<', -- Mark general truncate point
-              { hl = 'MiniStatuslineFilename', strings = { '%t' } },
+              { hl = 'MiniStatuslineFilename', strings = { '%f' } },
               '%=', -- End left alignment
               { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
               { hl = mode_hl,                  strings = { search, location } },
