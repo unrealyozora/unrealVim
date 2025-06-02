@@ -1,3 +1,4 @@
+vim.lsp.enable('clangd')
 return {
   {
     "neovim/nvim-lspconfig",
