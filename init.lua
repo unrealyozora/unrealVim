@@ -1,3 +1,5 @@
+vim.lsp.set_log_level("debug")
+vim.opt.shell = "fish"
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
