@@ -1,4 +1,6 @@
+vim.lsp.set_log_level("WARN")
 vim.lsp.enable('clangd')
+vim.lsp.enable('pyright')
 return {
   {
     "neovim/nvim-lspconfig",
@@ -29,7 +31,7 @@ return {
       })
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
-      require("lspconfig").clangd.setup { cmd = { "clangd", "--enable-config" }, }
+      vim.lsp.config("clangd", { cmd = { "clangd", "--enable-config" }, })
     end,
   }
 }

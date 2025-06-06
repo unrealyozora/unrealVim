@@ -1,5 +1,7 @@
 local builtin = require('telescope.builtin')
 local multigrep = require("config.telescope.multigrep")
+local vimconf = require("config.telescope.vimconf")
+local dev_folder = require("config.telescope.dev")
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope find help pages' })
 vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope find git files' })
@@ -7,3 +9,5 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 vim.keymap.set('n', '<leader>fg', multigrep.live_multigrep, { desc = 'Telescope find with multigrep' })
+vim.keymap.set("n", "<leader>fv", vimconf.nvim_config_files, { desc = "Find Neovim Configuration files" })
+vim.keymap.set("n", "<leader>fd", dev_folder.dev_folder, { desc = "Developmente Projects" })
