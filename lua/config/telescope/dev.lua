@@ -8,6 +8,7 @@ function M.dev_folder()
     prompt_title = "Find Development Folder",
     cwd = dev_path,
     find_command = { "fd", "--type", "d", "--max-depth", "1", "--hidden", "--exclude", ".git" },
+    sorter = require("telescope.config").values.generic_sorter({}),
   })
 end
 

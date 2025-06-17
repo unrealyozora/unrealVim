@@ -17,5 +17,5 @@ end)
 if vim.g.vscode then
   require "tom.vscode_keymaps"
 else
-  --ordinary
+  --normal operations
 end
