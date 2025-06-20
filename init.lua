@@ -17,5 +17,6 @@ end)
 if vim.g.vscode then
   require "tom.vscode_keymaps"
 else
+  vim.opt.showmode = false
   --normal operations
 end
