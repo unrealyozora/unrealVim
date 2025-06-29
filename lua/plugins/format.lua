@@ -5,9 +5,10 @@ return {
     event = { "BufWritePre" },
     config = function()
       require("conform").setup({
+        log_level = vim.log.levels.DEBUG,
         format_on_save = {
           timeout_ms = 500,
-          lsp_fallback = true,
+          lsp_format = "fallback",
         },
         formatters_by_ft = {
           lua = { "stylua" },

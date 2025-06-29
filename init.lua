@@ -14,9 +14,16 @@ vim.keymap.set("n", "<space>st", function()
   vim.api.nvim_win_set_height(0, 10)
 end)
 
+--command to set .vs and .fs files to glsl type (if you work with fsharp, .fs causes conflicts)
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.vs", "*.fs" },
+  callback = function()
+    vim.bo.filetype = "glsl"
+  end,
+})
+
 if vim.g.vscode then
-  require "tom.vscode_keymaps"
+  require("tom.vscode_keymaps")
 else
   vim.opt.showmode = false
-  --normal operations
 end
