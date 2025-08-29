@@ -15,6 +15,14 @@ return {
           python = { "black" },
           cpp = { "clang-format" },
           c = { "clang-format" },
+          gdscript = { "gdformat" },
+        },
+        formatters = {
+          gdformat = {
+            command = "gdformat",
+            args = { "$FILENAME" },
+            stdin = false,
+          },
         },
       })
     end,

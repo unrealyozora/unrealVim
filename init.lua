@@ -1,22 +1,24 @@
-local uv = vim.uv or vim.loop
-local cwd = vim.fn.getcwd()
-local project_name = vim.fn.fnamemodify(cwd, ":t") -- nome della cartella corrente
-
 -- Usa sempre un nome valido per la pipe
 local pipe_name
-if vim.fn.has("win32") == 1 then
-  pipe_name = "\\\\.\\pipe\\godot_nvim_"
-else
-  pipe_name = "/tmp/godot_nvim_"
+
+local function start_godot_server()
+  local project_root = vim.fn.getcwd()
+  if vim.fn.has("win32") == 1 then
+    pipe_name = "\\\\.\\pipe\\godot_nvim"
+  else
+    pipe_name = "/tmp/godot_nvim"
+  end
+
+  local godot_project = vim.fn.findfile("project.godot", project_root .. ";")
+  if godot_project ~= "" then
+    vim.fn.serverstart(pipe_name)
+    print("Neovim server started on " .. pipe_name)
+  end
 end
 
--- Avvia server solo se non è già attivo
-local ok, err = pcall(vim.fn.serverstart, pipe_name)
-if not ok then
-  vim.notify("Failed to start Neovim Server at " .. pipe_name .. ": " .. tostring(err), vim.log.levels.ERROR)
-else
-  vim.notify("Neovim server started at " .. pipe_name)
-end
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = start_godot_server,
+})
 
 vim.lsp.set_log_level("debug")
 vim.opt.shell = "fish"
