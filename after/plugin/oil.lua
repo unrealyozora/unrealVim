@@ -18,3 +18,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>pr", function()
+  require("oil").open(vim.fn.getcwd())
+end, { desc = "Open Oil at project root" })
