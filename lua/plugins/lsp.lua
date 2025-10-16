@@ -3,6 +3,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("glsl_analyzer")
 vim.lsp.enable("pyright")
 vim.lsp.enable("gdscript")
+vim.lsp.enable("rust_analyzer")
 return {
   {
     "neovim/nvim-lspconfig",
@@ -39,6 +40,13 @@ return {
         filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs", "vs" },
       })
       vim.lsp.config("gdscript", {
+        capabilities = capabilities,
+      })
+      vim.lsp.config("rust_analyzer", {
+        cmd = { "rust-analyzer" },
+        filetypes = { "rust" },
+        root_markers = { "Cargo.toml", ".git" },
+        single_file_support = true,
         capabilities = capabilities,
       })
     end,

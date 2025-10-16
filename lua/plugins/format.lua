@@ -16,6 +16,8 @@ return {
           cpp = { "clang-format" },
           c = { "clang-format" },
           gdscript = { "gdformat" },
+          arduino = { "clang-format" },
+          rust = { "rustfmt" },
         },
         formatters = {
           gdformat = {

@@ -10,6 +10,7 @@ return {
       defaults = {
         file_ignore_patterns = { "%.uid$" },
       },
+
       extensions = {
         fzf = {},
       },

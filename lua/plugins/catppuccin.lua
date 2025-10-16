@@ -13,7 +13,12 @@ return {
         transparent = false,
         solid = false,
       },
+      dim_inactive = {
+        enabled = true,
+        shade = "dark",
+        percentage = 0.15,
+      },
     })
-    vim.cmd.colorscheme("catppuccin-macchiato")
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }
