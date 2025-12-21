@@ -44,6 +44,31 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+if not vim.g.vscode then
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      require("neo-tree.command").execute({ action = "show" })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+      local wins = vim.api.nvim_list_wins()
+
+      -- se c'è una sola finestra aperta
+      if #wins == 1 then
+        local buf = vim.api.nvim_win_get_buf(wins[1])
+        local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+
+        -- se l'unico buffer è Neo-tree → chiudi Neovim
+        if ft == "neo-tree" then
+          vim.cmd("quit")
+        end
+      end
+    end,
+  })
+end
+
 if vim.g.vscode then
   require("tom.vscode_keymaps")
 else

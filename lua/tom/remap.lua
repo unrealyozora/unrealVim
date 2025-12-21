@@ -1,3 +1,12 @@
+local function add_semicolon_end_of_line()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  row = row - 1
+  local line = vim.api.nvim_buf_get_lines(0, row, row + 1, false)[1]
+  vim.api.nvim_buf_set_lines(0, row, row + 1, false, { line .. ";" })
+
+  vim.api.nvim_win_set_cursor(0, { row + 1, col })
+end
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -38,3 +47,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
+
+vim.keymap.set("n", ";;", add_semicolon_end_of_line, { noremap = true, silent = true })

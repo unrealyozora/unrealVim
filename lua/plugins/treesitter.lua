@@ -17,6 +17,8 @@ return {
           "gdscript",
           "godot_resource",
           "gdshader",
+          "xml",
+          "html",
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)

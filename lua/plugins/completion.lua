@@ -1,12 +1,12 @@
 return {
   {
-    'saghen/blink.cmp',
+    "saghen/blink.cmp",
     cond = not vim.g.vscode,
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = { "rafamadriz/friendly-snippets" },
 
     -- use a release tag to download pre-built binaries
-    version = '1.*',
+    version = "1.*",
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -24,88 +24,85 @@ return {
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        preset = 'default',
-        ['<CR>'] = {
+        preset = "default",
+        ["<CR>"] = {
           function(cmp)
             if cmp.is_active() then
-              return cmp.accept()
+              return cmp.accept({ behavior = "replace" })
             else
+              return "fallback"
             end
           end,
-          'fallback'
-        }
+          "fallback",
+        },
       },
-
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
+        nerd_font_variant = "mono",
       },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
         documentation = {
           auto_show = false,
-          window = { border = 'single' }
+          window = { border = "single" },
         },
         menu = {
-          border = 'rounded',
+          border = "rounded",
           draw = {
             components = {
               kind_icon = {
                 text = function(ctx)
-                  local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                   return kind_icon
                 end,
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                   return hl
                 end,
               },
               kind = {
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                   return hl
                 end,
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       },
-
-
 
       --Enable signature help (experimental)
       signature = {
         window = {
           show_documentation = true,
-          border = 'rounded'
+          border = "rounded",
         },
-        enabled = true
+        enabled = true,
       },
 
       --set up auto-show also for cmdline mode
       cmdline = {
         keymap = {
-          preset = 'cmdline'
+          preset = "cmdline",
         },
         completion = {
           menu = {
             auto_show = function(ctx)
-              return vim.fn.getcmdtype() == ':'
-            end
-          }
-        }
+              return vim.fn.getcmdtype() == ":"
+            end,
+          },
+        },
       },
-
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { "lsp", "path", "snippets", "buffer" },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -113,8 +110,8 @@ return {
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
       --
       -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = "prefer_rust_with_warning" },
     },
-    opts_extend = { "sources.default" }
-  }
+    opts_extend = { "sources.default" },
+  },
 }
