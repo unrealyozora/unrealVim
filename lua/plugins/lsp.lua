@@ -57,27 +57,26 @@ return {
       --  CONFIGURE BUILT-IN LSP SERVERS
       -- --------------------------------------------------
 
-      vim.lsp.enable("lua_ls")
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
       })
+      vim.lsp.enable("lua_ls")
 
-      vim.lsp.enable("clangd")
       vim.lsp.config("clangd", {
         cmd = { "clangd", "--enable-config" },
         capabilities = capabilities,
       })
+      vim.lsp.enable("clangd")
 
-      vim.lsp.enable("glsl_analyzer")
       vim.lsp.config("glsl_analyzer", {
         capabilities = capabilities,
         filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs", "vs" },
       })
+      vim.lsp.enable("glsl_analyzer")
 
       vim.lsp.enable("pyright")
       vim.lsp.enable("gdscript")
 
-      vim.lsp.enable("rust_analyzer")
       vim.lsp.config("rust_analyzer", {
         cmd = { "rust-analyzer" },
         capabilities = capabilities,
@@ -85,6 +84,8 @@ return {
         root_markers = { "Cargo.toml", ".git" },
         single_file_support = true,
       })
+      vim.lsp.enable("rust_analyzer")
+      vim.lsp.enable("neocmake")
 
       local phpactor_cmd = { "wsl", "-e", "bash", "-ic", "/home/tomma/.local/bin/phpactor" }
       lspconfig.phpactor.setup({
