@@ -85,6 +85,9 @@ return {
         single_file_support = true,
       })
       vim.lsp.enable("rust_analyzer")
+      vim.lsp.config("neocmake", {
+        cmd = { "neocmakelsp", "stdio" },
+      })
       vim.lsp.enable("neocmake")
 
       local phpactor_cmd = { "wsl", "-e", "bash", "-ic", "/home/tomma/.local/bin/phpactor" }
