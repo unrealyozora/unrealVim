@@ -49,3 +49,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
 
 vim.keymap.set("n", ";;", add_semicolon_end_of_line, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>i", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+end)

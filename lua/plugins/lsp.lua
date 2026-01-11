@@ -1,13 +1,16 @@
+--Setup LSP, with lspconfig
 return {
   {
-    "mason-org/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+
     cond = not vim.g.vscode,
 
     dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
       -- Completion
       "saghen/blink.cmp",
+
+      --Better and faster lua_ls setup
       {
         "folke/lazydev.nvim",
         ft = "lua",
@@ -34,11 +37,14 @@ return {
       -- Capabilities (blink.cmp)
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      -- --------------------------------------------------
-      --  CONFIGURE BUILT-IN LSP SERVERS
-      -- --------------------------------------------------
+      -- Configure individual LSP servers
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
+        settings = {
+          Lua = {
+            hint = { enable = true },
+          },
+        },
       })
       vim.lsp.config("clangd", {
         cmd = { "clangd", "--enable-config" },
@@ -78,17 +84,8 @@ return {
         cmd = { "neocmakelsp", "stdio" },
         capabilities = capabilities,
       })
-      for _, server in ipairs({
-        "lua_ls",
-        "clangd",
-        "glsl_analyzer",
-        "pyright",
-        "gdscript",
-        "rust_analyzer",
-        "neocmake",
-      }) do
-        vim.lsp.enable(server)
-      end
+
+      vim.lsp.enable("gdscript")
     end,
   },
 }
