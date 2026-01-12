@@ -1,6 +1,6 @@
 -- Function to exit neotree when the window is too small
 local MIN_WIDTH = 120
-vim.api.nvim_create_autocmd({ "VimResized", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     local width = vim.o.columns
     local neotree = require("neo-tree.command")
