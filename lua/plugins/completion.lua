@@ -82,7 +82,7 @@ return {
           show_documentation = true,
           border = "rounded",
         },
-        enabled = true,
+        enabled = false,
       },
 
       --set up auto-show also for cmdline mode

@@ -1,6 +1,6 @@
-return
-{
-  'stevearc/oil.nvim',
+return {
+  "stevearc/oil.nvim",
+  cond = not vim.g.vscode,
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},
@@ -9,12 +9,12 @@ return
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   config = function()
-    require("oil").setup {
+    require("oil").setup({
       delete_to_trash = true,
       skip_confirm_for_simple_edits = true,
       view_options = {
-        show_hidden = true
-      }
-    }
-  end
+        show_hidden = true,
+      },
+    })
+  end,
 }

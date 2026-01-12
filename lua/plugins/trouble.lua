@@ -1,7 +1,7 @@
 vim.diagnostic.config({ virtual_text = true })
-return
-{
+return {
   "folke/trouble.nvim",
+  cond = not vim.g.vscode,
   opts = {}, -- for default options, refer to the configuration section for custom setup.
   cmd = "Trouble",
   keys = {

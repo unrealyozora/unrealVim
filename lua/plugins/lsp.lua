@@ -34,6 +34,10 @@ return {
         end,
       })
 
+      --Border color setup
+      vim.diagnostic.config({ virtual_text = { current_line = true } })
+      vim.o.winborder = "single"
+
       -- Capabilities (blink.cmp)
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 

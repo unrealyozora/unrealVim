@@ -1,6 +1,7 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    cond = not vim.g.vscode,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -11,7 +12,7 @@ return {
     --@module 'neo-tree'
     --#type neotree.Config
     opts = {
-      close_if_last_window = true,
+      close_if_last_window = false,
       default_component_configs = {
         git_status = {
           symbols = {

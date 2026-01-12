@@ -1,5 +1,6 @@
 return {
   "windwp/nvim-autopairs",
+  cond = not vim.g.vscode,
   dependencies = { "windwp/nvim-ts-autotag" },
   event = "InsertEnter",
   config = function()
