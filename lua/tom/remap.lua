@@ -41,3 +41,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set("n", "<leader>i", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end)
+
+vim.keymap.set("n", "<leader>e", function()
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    border = "rounded",
+    source = "always",
+  })
+end, { desc = "Show diagnostic in floating window" })
