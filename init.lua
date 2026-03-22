@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = start_godot_server,
 })
 
-vim.opt.shell = "fish"
+vim.opt.shell = "pwsh"
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

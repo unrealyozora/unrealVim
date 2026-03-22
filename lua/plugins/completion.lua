@@ -29,8 +29,6 @@ return {
           function(cmp)
             if cmp.is_active() then
               return cmp.accept({ behavior = "replace" })
-            else
-              return "fallback"
             end
           end,
           "fallback",

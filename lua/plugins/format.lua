@@ -17,6 +17,21 @@ return {
           gdscript = { "gdformat" },
           arduino = { "clang-format" },
           rust = { "rustfmt" },
+          typescript = function(bufnr)
+            if require("conform").get_formatter_info("biome", bufnr).available then
+              return { "biome", lsp_format = "never" }
+            end
+          end,
+          javascript = function(bufnr)
+            if require("conform").get_formatter_info("biome", bufnr).available then
+              return { "biome", lsp_format = "never" }
+            end
+          end,
+          typescriptreact = function(bufnr)
+            if require("conform").get_formatter_info("biome", bufnr).available then
+              return { "biome", lsp_format = "never" }
+            end
+          end,
         },
         formatters = {
           gdformat = {

@@ -66,6 +66,7 @@ return {
           "comp",
           "fs",
           "vs",
+          "gs",
         },
       })
 
@@ -89,7 +90,9 @@ return {
         capabilities = capabilities,
       })
 
-      vim.lsp.enable("gdscript")
+      vim.lsp.config("vtls", {
+        capabilities = capabilities,
+      })
     end,
   },
 }

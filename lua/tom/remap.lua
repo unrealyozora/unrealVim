@@ -31,6 +31,12 @@ vim.keymap.set("n", "<leader>dt", function()
   os.execute(cmd)
 end, { desc = "Open a new Visual Studio PowerShell Terminal Tab" })
 
+vim.keymap.set("n", "<leader>lt", function()
+  local cwd = vim.fn.getcwd()
+  local cmd = string.format('wt -d "%s" --profile "Ubuntu"', cwd)
+  os.execute(cmd)
+end, { desc = "Open a new Visual Studio PowerShell Terminal Tab" })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)

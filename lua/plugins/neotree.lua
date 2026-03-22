@@ -8,6 +8,25 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
+    config = function()
+      local MIN_WIDTH = 120
+      vim.api.nvim_create_autocmd({ "VimResized" }, {
+        callback = function()
+          local width = vim.o.columns
+          local neotree = require("neo-tree.command")
+
+          if width < MIN_WIDTH then
+            pcall(function()
+              neotree.execute({ action = "close" })
+            end)
+          else
+            pcall(function()
+              neotree.execute({ action = "show" })
+            end)
+          end
+        end,
+      })
+    end,
     lazy = false, -- neo-tree will lazily load itself
     --@module 'neo-tree'
     --#type neotree.Config
