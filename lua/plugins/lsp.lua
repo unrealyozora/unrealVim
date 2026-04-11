@@ -70,7 +70,7 @@ return {
         },
       })
 
-      vim.lsp.config("pyright", {
+      vim.lsp.config("python-lsp-server", {
         capabilities = capabilities,
       })
 
