@@ -8,5 +8,8 @@ return {
   opts = {
     suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     -- log_level = 'debug',
+
+    pre_save_cmds = { "Neotree close" },
+    post_restore_cmds = { "Neotree filesystem show" },
   },
 }

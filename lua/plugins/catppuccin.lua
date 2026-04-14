@@ -3,7 +3,6 @@ return {
   cond = not vim.g.vscode,
   name = "catppuccin",
   priority = 1000,
-  cond = not vim.g.vscode,
   config = function()
     require("catppuccin").setup({
       transparent_background = true,
@@ -19,6 +18,13 @@ return {
         shade = "dark",
         percentage = 0.15,
       },
+
+      custom_highlights = function(colors)
+        return {
+          NeoTreeNormal = { bg = colors.mantle },
+          NeoTreeNormalNC = { bg = colors.mantle },
+        }
+      end,
     })
     vim.cmd.colorscheme("catppuccin-mocha")
   end,
