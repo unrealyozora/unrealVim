@@ -44,26 +44,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
-if not vim.g.vscode then
-  local MIN_WIDTH = 120
-  vim.api.nvim_create_autocmd({ "VimEnter" }, {
-    callback = function()
-      local width = vim.o.columns
-      local neotree = require("neo-tree.command")
-
-      if width < MIN_WIDTH then
-        pcall(function()
-          neotree.execute({ action = "close" })
-        end)
-      else
-        pcall(function()
-          neotree.execute({ action = "show" })
-        end)
-      end
-    end,
-  })
-end
-
 --diagnostic icons setup
 vim.diagnostic.config({
   signs = {
