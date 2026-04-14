@@ -1,6 +1,7 @@
 -- Usa sempre un nome valido per la pipe
 local pipe_name
 
+local prova
 local function start_godot_server()
   local project_root = vim.fn.getcwd()
   if vim.fn.has("win32") == 1 then
