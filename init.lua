@@ -3,7 +3,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Usa sempre un nome valido per la pipe
 local pipe_name
 
-local prova
 local function start_godot_server()
   local project_root = vim.fn.getcwd()
   if vim.fn.has("win32") == 1 then
@@ -23,7 +22,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = start_godot_server,
 })
 
-vim.opt.shell = "pwsh"
+-- vim.opt.shell = "pwsh"
+-- vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+-- vim.opt.shellxquote = ""
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

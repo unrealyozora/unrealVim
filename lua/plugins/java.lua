@@ -1,9 +1,12 @@
 return {
   "nvim-java/nvim-java",
-  ft = "java",
-  cond = not vim.g.vscode,
   config = function()
-    require("java").setup()
+    require("java").setup({
+      jdk = {
+        auto_install = false,
+        version = "21",
+      },
+    })
     vim.lsp.enable("jdtls")
   end,
 }

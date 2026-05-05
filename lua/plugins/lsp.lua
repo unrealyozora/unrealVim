@@ -42,6 +42,22 @@ return {
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- Configure individual LSP servers
+      vim.lsp.config("jdtls", {
+        root_markers = { ".git", "pom.xml" },
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-21",
+                  path = "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.5.11-hotspot",
+                  default = true,
+                },
+              },
+            },
+          },
+        },
+      })
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {

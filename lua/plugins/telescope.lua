@@ -9,7 +9,7 @@ return {
     require("telescope").setup({
       defaults = {
         hidden = true,
-        file_ignore_patterns = { "%.uid$" },
+        file_ignore_patterns = { "%.uid$", "%.class" },
       },
 
       extensions = {
