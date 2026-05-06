@@ -47,6 +47,18 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+--command to set java correct indentations settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.bo.expandtab = true
+    vim.bo.smartindent = true
+  end,
+})
+
 --diagnostic icons setup
 vim.diagnostic.config({
   signs = {
