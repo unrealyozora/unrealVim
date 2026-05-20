@@ -11,6 +11,7 @@ local function start_godot_server()
     pipe_name = "/tmp/godot_nvim"
   end
 
+  #commento prova
   local godot_project = vim.fn.findfile("project.godot", project_root .. ";")
   if godot_project ~= "" then
     vim.fn.serverstart(pipe_name)
