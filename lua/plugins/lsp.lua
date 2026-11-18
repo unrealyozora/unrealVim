@@ -50,7 +50,7 @@ return {
               runtimes = {
                 {
                   name = "JavaSE-21",
-                  path = "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.5.11-hotspot",
+                  path = "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.5.11-hotspot\\bin",
                   default = true,
                 },
               },
@@ -106,8 +106,12 @@ return {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("vtls", {
-        capabilities = capabilities,
+      vim.lsp.config("tinymist", {
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "onType",
+          semanticTokens = "disable",
+        },
       })
     end,
   },

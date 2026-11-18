@@ -47,13 +47,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
---command to set java correct indentations settings
+--command to set correct indentations settings for specific languages
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
+  pattern = { "java", "svelte" },
   callback = function()
-    vim.bo.tabstop = 2
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
+    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 4
+    vim.bo.softtabstop = 4
     vim.bo.expandtab = true
     vim.bo.smartindent = true
   end,

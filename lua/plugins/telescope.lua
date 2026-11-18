@@ -9,6 +9,8 @@ return {
     require("telescope").setup({
       defaults = {
         hidden = true,
+        no_ignore = true,
+        no_ignore_parent = true,
         file_ignore_patterns = { "%.uid$", "%.class" },
       },
 
@@ -22,6 +24,13 @@ return {
     local vimconf = require("config.telescope.vimconf")
     local dev_folder = require("config.telescope.dev")
     vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Telescope find files" })
+
+    vim.keymap.set("n", "<leader>pF", function()
+      require("telescope.builtin").find_files({
+        find_command = { "fd", "--hidden", "--no-ignore" },
+      })
+    end, { desc = "Telescope find all files (include hidden)" })
+
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope find help pages" })
     vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope find git files" })
     vim.keymap.set("n", "<leader>ps", function()
