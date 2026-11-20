@@ -61,6 +61,10 @@
       "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "rooter.nvim": {
+      "rev": "e052796c241d244446e670f1216e73d8ab3e121f",
+      "src": "https://github.com/wsdjeg/rooter.nvim"
+    },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
@@ -80,6 +84,10 @@
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-glsl": {
+      "rev": "40dd0b143ef93f3930a8a409f60c1bb85e28b727",
+      "src": "https://github.com/stykhomyrov/vim-glsl"
     }
   }
 }

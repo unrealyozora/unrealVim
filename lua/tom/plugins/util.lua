@@ -29,3 +29,7 @@ require("oil").setup({
 		autosave_changes = true,
 	},
 })
+
+require("rooter").setup({
+	root_patterns = { ".git/", "pom.xml" },
+})

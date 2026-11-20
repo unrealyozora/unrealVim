@@ -14,6 +14,7 @@ vim.pack.add({
 	{ src = gh("rachartier/tiny-cmdline.nvim") },
 	-- util
 	{ src = gh("stevearc/oil.nvim") },
+	{ src = gh("wsdjeg/rooter.nvim") },
 	--editor
 	{ src = gh("stevearc/conform.nvim") },
 	{ src = gh("nvim-treesitter/nvim-treesitter") },
