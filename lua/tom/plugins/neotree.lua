@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 require("neo-tree").setup({
-	close_if_last_window = false, -- never close the sidebar on its own
+	close_if_last_window = true, -- never close the sidebar on its own
 	open_files_in_last_window = true, -- open files in the editor window, not in the sidebar
 	-- never open a file *into* these windows either
 	open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "edgy", "oil" },
