@@ -27,6 +27,24 @@ map({
 	},
 })
 
+-- Neo-tree sidebar
+local neotree = require("tom.plugins.neotree")
+map({
+	{ "<leader>tt", neotree.toggle, desc = "Toggle file tree sidebar" },
+	{
+		"<leader>tf",
+		function()
+			require("neo-tree.command").execute({
+				source = "filesystem",
+				position = "left",
+				action = "focus",
+				reveal = true,
+			})
+		end,
+		desc = "Reveal current file in tree",
+	},
+})
+
 -- LSP
 local Snacks = require("snacks")
 map({

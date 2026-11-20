@@ -45,6 +45,14 @@
       "rev": "e332261859814c307e72458222070f84b6d6f4e8",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
+    "neo-tree.nvim": {
+      "rev": "760d9701953ad2b0277fe9776ba99bb011ecac2b",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
+    "nui.nvim": {
+      "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
@@ -60,6 +68,10 @@
     "oil.nvim": {
       "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "rooter.nvim": {
       "rev": "e052796c241d244446e670f1216e73d8ab3e121f",

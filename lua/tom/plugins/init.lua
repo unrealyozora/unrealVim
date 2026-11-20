@@ -12,6 +12,9 @@ vim.pack.add({
 	{ src = gh("folke/trouble.nvim") },
 	{ src = gh("esmuellert/codediff.nvim") },
 	{ src = gh("rachartier/tiny-cmdline.nvim") },
+	{ src = gh("nvim-neo-tree/neo-tree.nvim") },
+	{ src = gh("MunifTanjim/nui.nvim") },
+	{ src = gh("nvim-lua/plenary.nvim") },
 	-- util
 	{ src = gh("stevearc/oil.nvim") },
 	{ src = gh("wsdjeg/rooter.nvim") },
@@ -31,6 +34,7 @@ vim.pack.add({
 })
 
 require("tom.plugins.ui")
+require("tom.plugins.neotree")
 require("tom.plugins.treesitter")
 require("tom.plugins.editor")
 require("tom.plugins.lsp")

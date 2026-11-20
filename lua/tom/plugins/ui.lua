@@ -61,22 +61,28 @@ require("snacks").setup({
 	},
 })
 
-require("incline").setup({
-	window = {
-		margin = { vertical = 0, horizontal = 1 },
-		zindex = 10,
-	},
-	hide = {
-		cursorline = "smart",
-	},
-	render = function(props)
-		local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-		if vim.bo[props.buf].modified then
-			filename = "[+] " .. filename
+-- Snacks opens picked files in a "main" window, which it guesses by skipping
+-- windows holding a special buffer (buftype ~= ""). When the only windows left
+-- are neo-tree (nofile) and oil (acwrite) it can pick the sidebar, neo-tree then
+-- recovers its window and the picked file lands in a stray split. Mark every
+-- real (non-sidebar, non-float) window as a valid target so the guess is stable.
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+	group = vim.api.nvim_create_augroup("UserPickTarget", {}),
+	desc = "Prefer real windows when Snacks opens picked files",
+	callback = function()
+		local win = vim.api.nvim_get_current_win()
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			return -- floats (picker, oil float, ...) are never targets
 		end
-
-		local icon, hl = MiniIcons.get("file", filename)
-		return { { icon, group = hl }, { " " }, { filename } }
+		if vim.bo.filetype == "neo-tree" then
+			return -- never open files into the sidebar
+		end
+		for _, other in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+			if other ~= win then
+				vim.w[other].snacks_main = nil
+			end
+		end
+		vim.w[win].snacks_main = true
 	end,
 })
 
@@ -158,6 +164,28 @@ require("lualine").setup({
 			{ "location", padding = { left = 1, right = 1 } },
 		},
 	},
+})
+
+require("incline").setup({
+	window = {
+		margin = { vertical = 0, horizontal = 1 },
+		zindex = 10,
+	},
+	hide = {
+		cursorline = "smart",
+	},
+	ignore = {
+		filetypes = { "neo-tree" },
+	},
+	render = function(props)
+		local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+		if vim.bo[props.buf].modified then
+			filename = "[+] " .. filename
+		end
+
+		local icon, hl = MiniIcons.get("file", filename)
+		return { { icon, group = hl }, { " " }, { filename } }
+	end,
 })
 
 vim.diagnostic.config({
