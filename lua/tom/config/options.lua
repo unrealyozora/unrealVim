@@ -24,6 +24,7 @@ vim.opt.signcolumn = "yes" -- always show sign colum
 vim.opt.showmatch = true
 vim.g.have_nerd_font = true
 vim.opt.guicursor = ""
+vim.o.cmdheight = 0
 
 -- file handling settings
 vim.opt.writebackup = false

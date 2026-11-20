@@ -13,7 +13,7 @@ require("blink.cmp").setup({
 			},
 		},
 		menu = {
-			border = "none",
+			border = "rounded",
 			draw = {
 				treesitter = { "lsp" },
 			},
