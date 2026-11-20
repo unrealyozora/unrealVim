@@ -17,8 +17,8 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
--- delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+-- delete the whole word under the cursor, without touching the registers
+keymap.set("n", "dw", '"_daw')
 
 -- Move selected lines down in visual mode
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")

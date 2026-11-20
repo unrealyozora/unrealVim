@@ -40,6 +40,26 @@ require("snacks").setup({
 		layouts = {
 			default = { layout = { width = 0.9, height = 0.9 } },
 		},
+		win = {
+			-- Prompt (insert mode): Ctrl+S = vertical split, Ctrl+X = horizontal split.
+			-- NOTE: keys are written in the same notation snacks ships its defaults with
+			-- (`<C-S>`), so this *replaces* the default binding instead of adding a
+			-- second map for the same physical key.
+			input = {
+				keys = {
+					["<C-S>"] = { "vsplit", mode = { "i", "n" } },
+					["<C-X>"] = { "split", mode = { "i", "n" } },
+				},
+			},
+			-- Results list (press `/` in the prompt to focus it):
+			-- x = horizontal split, v = vertical split.
+			list = {
+				keys = {
+					["x"] = "split",
+					["s"] = "vsplit",
+				},
+			},
+		},
 	},
 	notifier = { enabled = true },
 	statuscolumn = { enabled = true },
