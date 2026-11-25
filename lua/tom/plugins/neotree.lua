@@ -141,7 +141,7 @@ require("neo-tree").setup({
 		hijack_netrw_behavior = "disabled", -- netrw is disabled in config/options.lua
 		filtered_items = {
 			hide_dotfiles = false,
-			hide_gitignored = true, -- keeps node_modules & friends out of the tree
+			hide_gitignored = false, -- keeps node_modules & friends out of the tree
 		},
 		follow_current_file = { enabled = true, leave_dirs_open = false },
 		group_empty_dirs = false,
