@@ -18,6 +18,8 @@ vim.pack.add({
 	-- util
 	{ src = gh("stevearc/oil.nvim") },
 	{ src = gh("wsdjeg/rooter.nvim") },
+	{ src = gh("smart-splits-nvim/backend-wezterm") },
+	{ src = gh("smart-splits-nvim/smart-splits.nvim") },
 	--editor
 	{ src = gh("stevearc/conform.nvim") },
 	{ src = gh("nvim-treesitter/nvim-treesitter") },

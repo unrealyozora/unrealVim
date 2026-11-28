@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "backend-wezterm": {
+      "rev": "ae840db696791f638c190c3e0534d2ddfcd5e6a7",
+      "src": "https://github.com/smart-splits-nvim/backend-wezterm"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -76,6 +80,10 @@
     "rooter.nvim": {
       "rev": "e052796c241d244446e670f1216e73d8ab3e121f",
       "src": "https://github.com/wsdjeg/rooter.nvim"
+    },
+    "smart-splits.nvim": {
+      "rev": "e96b23e4ce660c95133f0080a6e488b96644ec0c",
+      "src": "https://github.com/smart-splits-nvim/smart-splits.nvim"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",

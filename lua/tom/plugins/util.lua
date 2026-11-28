@@ -33,3 +33,9 @@ require("oil").setup({
 require("rooter").setup({
 	root_patterns = { ".git/", "pom.xml" },
 })
+
+require("smart-splits").setup({
+	mux = {
+		backend = "smart-splits-backend-wezterm",
+	},
+})
